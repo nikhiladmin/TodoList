@@ -51,7 +51,7 @@ exports.postLogin = (req, res, next) => {
 };
 
 exports.getSignup = (req, res, next) => {
-   res.render("auth/Signup", {
+   res.render("auth/signup", {
       pageTitle: "Signup",
       errorMessage : null,
       oldInput: { email: "", password: "", confirmPassword: "" },
