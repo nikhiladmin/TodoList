@@ -1,0 +1,21 @@
+<%- include("../includes/header",{pageTitle : pageTitle}) -%>
+<%- include("../includes/navigation") -%>
+
+<div class="auth">
+        <h1>Create an Account</h1>
+        <h2>Signup</h2>
+        <%if(errorMessage){%>
+            <div class="flash-message">
+            <%= errorMessage %>        
+            </div>
+            <%} %>
+        <form action="/signup" method="POST">
+            <input type="email"  name="email" value="<%=oldInput.email%>" placeholder="Email ID">
+            <input type="password"  name="password" value="<%=oldInput.password%>" placeholder="Password">
+            <input type="password"  name="confirmPassword" value="<%=oldInput.confirmPassword%>" placeholder="Confirm Password">
+            <button class="btn" type="submit">Login</button>
+        </form>
+</div>
+
+
+<%- include("../includes/footer") -%>

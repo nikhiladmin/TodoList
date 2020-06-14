@@ -1,0 +1,17 @@
+<%- include("./includes/header",{pageTitle : pageTitle}) -%>
+<% if(isAuthenticated){%>
+<%- include("./includes/createList") -%>
+<%}%>
+<%- include("./includes/navigation") -%>
+
+<section class="get-Started">
+        <div>
+            <img src="/image/logo.svg" alt="logo" width="100px">
+                <h1>TODO List</h1>
+                <p>Organize your day</p>
+                <a class="btn" href="/signup">Get Started</a>
+        </div>
+    
+</section>
+
+<%- include("./includes/footer") -%>

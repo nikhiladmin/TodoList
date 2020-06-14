@@ -1,0 +1,50 @@
+<%- include("../includes/header",{pageTitle : pageTitle}) -%> 
+
+<% if(isAuthenticated){%>
+<%- include("../includes/createList") -%>
+<%}%>
+<%- include("../includes/navigation") -%>
+
+<div class="todo">
+   <div class="row">
+         <% if(todoList.length == 0) { %>
+
+            <script>
+               document.getElementById("black-bg").style.display="initial";
+               </script>
+
+            <%}%>
+      <% todoList.forEach(list=> { %>
+      <div class="col-sm-12 col-md-6">
+         <div class="list">
+            <div class="list-title"> 
+         <h1><%=list.listTitle%></h1>
+         <form class="delete-list" action="/deleteList" method="post">
+            <input type="hidden" name="deleteList" value="<%=list.id%>"/>
+            <button class="icon-btn"><i class="material-icons">highlight_off</i></button>
+         </form>
+       </div>
+            <% list.listItem.forEach(item=> { %>
+               <div class="listItem">
+                  <p><%=item%></p>
+                  <form action="/delete" method="post">
+                     <input type="hidden" name="userListId" value="<%=list.id%>"/>
+                     <input type="hidden" name="deleteItemName" value="<%=item%>"/>
+                     <button class="icon-btn"><i class="material-icons">delete</i></button>
+                  </form>
+               </div>
+               <%});%>
+            <form class="item-added" action="/add-item" method="post">
+               <input type="hidden" name="userListId"  value="<%=list.id%>" />
+               <input type="text" name="newItem" placeholder="New Item" autocomplete="off" required/>
+               <button class="btn" type="submit" name="list">+</button>
+            </form>
+         </div>
+      </div>
+      <%});%>
+
+     
+   </div>
+</div>
+
+<%- include("../includes/footer") -%>

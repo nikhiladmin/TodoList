@@ -1,0 +1,22 @@
+<nav>
+    <a class="logo" href="/"><img src="/image/logo.svg" width="40px" alt=""/></a>
+    <ul>
+       <% if(isAuthenticated){%>
+         <li> 
+               <p id="createList" class="btn-link">Create List</p>
+           </li>
+       <li>
+            <form action="/logout" method="post">
+               <button class="btn-link" type="submit">Logout</button>
+               </form> 
+         </li>
+            
+         <%}else{%>
+       <li><a   href="/Signup">Signup</a></li>
+       <li> 
+          <a  href="/login">Login</a>
+      </li>
+      <%}%>
+     
+    </ul>
+ </nav>
