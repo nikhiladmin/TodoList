@@ -19,7 +19,7 @@ mongoose
     useUnifiedTopology: true,
   })
   .then((res) => {
-    console.log(res);
+    console.log("Connected");
   })
   .catch((er) => {
     console.log(er);
